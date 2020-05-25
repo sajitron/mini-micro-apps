@@ -14,7 +14,7 @@ app.post('/events', async (req, res) => {
 		const status = data.content.includes('bollocks') ? 'rejected' : 'approved';
 
 		// * post to event-bus, we expect comments-service to pick up event
-		await axios.post('http://localhost:4005/events', {
+		await axios.post('http://event-bus-srv:4005/events', {
 			type: 'CommentModerated',
 			data: {
 				id: data.id,
